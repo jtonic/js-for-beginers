@@ -1,0 +1,21 @@
+{
+  "name": "js-for-beginers",
+  "version": "1.0.0",
+  "watch": {
+    "start": {
+      "patterns": ["src", "test"],
+      "extensions": "js",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 1000,
+      "runOnChangeOnly": false
+    }
+  },
+  "scripts": {
+    "start": "node src/functions.js src/collections.js",
+    "watch": "npm-watch"
+  },
+  "dependencies": {
+    "npm-watch": "^0.5.0"
+  }
+}
