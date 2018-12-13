@@ -19,3 +19,7 @@ let n1;
 const sum3 = sum(1, n1);
 console.log(sum3);
 
+let a = undefined;
+console.log(a, 1, a + 1);
+console.log(sum);
+console.log(typeof(sum));
