@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "watch": {
     "start": {
-      "patterns": ["src", "test"],
+      "patterns": [
+        "src",
+        "test"
+      ],
       "extensions": "js",
       "quiet": true,
       "legacyWatch": true,
@@ -12,7 +15,7 @@
     }
   },
   "scripts": {
-    "start": "node src/functions.js src/collections.js",
+    "start": "node src/BlackJack.js src/objects.js src/functions.js src/collections.js",
     "watch": "npm-watch"
   },
   "dependencies": {

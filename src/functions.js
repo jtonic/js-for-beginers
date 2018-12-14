@@ -1,4 +1,3 @@
-
 function sum(a, b) {
   console.log(`summing up ${a} and ${b}`);
   return a + b;
