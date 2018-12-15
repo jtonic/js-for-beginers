@@ -1,4 +1,23 @@
 
+
+let textArea = document.getElementById('text-area');
+let btnStartGame = document.getElementById('start-game-button');
+let btnHit = document.getElementById('hit-button');
+let btnStay = document.getElementById('stay-button');
+let btnCloseGame = document.getElementById('close-game-button');
+
+btnHit.style.display = 'none';
+btnStay.style.display = 'none';
+btnCloseGame.style.display = 'none';
+
+btnStartGame.addEventListener('click', function () {
+    textArea.innerText = 'Game started';
+    btnStartGame.style.display = 'none';
+    btnHit.style.display = 'block';
+    btnStay.style.display = 'block';
+    btnCloseGame.style.display = 'block';
+});
+
 function createDeck() {
     let values = [
         "Ace", "King", "Queen", "Jack",
