@@ -1,39 +1,65 @@
 
+// BlackJack variables
 
-let textArea = document.getElementById('text-area');
-let btnStartGame = document.getElementById('game-over-button');
-let btnHit = document.getElementById('hit-button');
-let btnStay = document.getElementById('stay-button');
-let btnCloseGame = document.getElementById('close-game-button');
+let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'],
+    values = ['Ace', 'King', 'Queen', 'Jack',
+        'Ten', 'Nine', 'Eight', 'Seven', 'Six',
+        'Five', 'Four', 'Three', 'Two'];
 
-btnHit.style.display = 'none';
-btnStay.style.display = 'none';
-btnCloseGame.style.display = 'none';
+console.log(myName);
+let myName = "jtonic";
 
-btnStartGame.addEventListener('click', function () {
+let gameStarted = false,
+    gameOver = false,
+    playerWon = false,
+    dealerCards = [],
+    playerCards = [],
+    dealerScore = 0,
+    playerScore = 0,
+    deck = [];
+
+// BlackJack Dom elements
+let textArea = document.getElementById("text-area");
+let divInfo = document.getElementById('div-info');
+let newGameButton = document.getElementById("new-game-button");
+let hitButton = document.getElementById("hit-button");
+let stayButton = document.getElementById("stay-button");
+hitButton.style.display = 'none';
+stayButton.style.display = 'none';
+
+// dom events
+newGameButton.addEventListener('click', function () {
     textArea.innerText = 'Game started';
-    btnStartGame.style.display = 'none';
-    btnHit.style.display = 'block';
-    btnStay.style.display = 'block';
-    btnCloseGame.style.display = 'block';
+    hitButton.style.display = 'block';
+    stayButton.style.display = 'block';
+    newGameButton.style.display = 'none';
+    deck = createDeck();
+    shuffleDeck(deck);
+    let info = "";
+    for (const card of deck) {
+        info += `${getCardString(card)}\n`
+    }
+    divInfo.innerText = info;
 });
 
+hitButton.addEventListener('click', function () {
+    throw('Not implemented!!!');
+});
+
+stayButton.addEventListener('click', function () {
+    throw('Not implemented!!!');
+});
+
+/**
+ * Create the deck of cards
+ */
 function createDeck() {
-    let values = [
-        "Ace", "King", "Queen", "Jack",
-        "Ten", "Nine", "Eight", "Seven",
-        "Six", "Five", "Four", "Three", "Two", "One"
-    ];
-
-    let ranks = ["Spades", "Hearts", "Diamonds", "Clubs"];
-
     let cards = [];
-
-    for (let vi = 0; vi < values.length; vi++) {
-        for (let ri = 0; ri < ranks.length; ri++) {
-            const card = {
-                suit: ranks[ri],
-                value: values[ri]
+    for (let vIdx = 0; vIdx < values.length; vIdx++) {
+        for (let sIdx = 0; sIdx < suits.length; sIdx++) {
+            let card = {
+                suit: suits[sIdx],
+                value: values[vIdx]
             };
             cards.push(card);
         }
@@ -41,26 +67,44 @@ function createDeck() {
     return cards;
 }
 
-function cardToString(card) {
+function shuffleDeck(deck) {
+    for (let cIdx = 0; cIdx < deck.length; cIdx++) {
+        let tmp = deck[cIdx];
+        let sIdx = Math.trunc(Math.random() * deck.length);
+        deck[cIdx] = deck[sIdx];
+        deck[sIdx] = tmp;
+    }
+}
+
+/**
+ * Human readable form a a card
+ * @param card
+ * @returns {string}
+ */
+function getCardString(card) {
     return `${card.value} of ${card.suit}`;
 }
 
-function getNextCard(deck) {
-    return deck.shift();
+function getNextCard() {
+    throw('Not implemented!!!');
 }
 
-let cards = createDeck();
-let playerCards = [getNextCard(cards), getNextCard(cards)];
-
-console.log("Deck cards");
-console.log("==========");
-for (const card of cards) {
-    console.log(cardToString(card));
+function getCardNumericValue(card) {
+    throw('Not implemented!!!');
 }
 
-console.log("=============");
-console.log("Players cards");
-console.log("=============");
-for (const playerCard of playerCards) {
-    console.log(cardToString(playerCard));
+function getScore(cardArray) {
+    throw('Not implemented!!!');
+}
+
+function updateScores() {
+    throw('Not implemented!!!');
+}
+
+function checkForEndOfGame() {
+    throw('Not implemented!!!');
+}
+
+function showStatus() {
+    throw('Not implemented!!!');
 }
