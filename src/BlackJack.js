@@ -1,7 +1,7 @@
 
 
 let textArea = document.getElementById('text-area');
-let btnStartGame = document.getElementById('start-game-button');
+let btnStartGame = document.getElementById('game-over-button');
 let btnHit = document.getElementById('hit-button');
 let btnStay = document.getElementById('stay-button');
 let btnCloseGame = document.getElementById('close-game-button');
